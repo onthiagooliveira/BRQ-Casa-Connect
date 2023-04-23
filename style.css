@@ -1,0 +1,377 @@
+/* Google font import - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+:root{
+    /* ==== Colors ==== */
+    --body-color: #18191A;
+    --sidebar-color: #242526;
+    --primary-color: #ff8c00;
+    --primary-color-light: #3A3B3C;
+    --togle-color: #FFF;
+    --text-color: #CCC;
+
+    /* ==== Transition ==== */
+    --tran-02: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.4s ease;
+    --tran-05: all 0.5s ease;
+}
+
+body{
+    margin: 0;
+    min-height: 100vh;
+    background: var(--body-color);
+    transition: var(--tran-05);
+    padding: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+}
+
+/*==== Sidebar ==== */
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    padding: 10px 14px;
+    background: var(--sidebar-color);
+    transition: var(--tran-05);
+    z-index: 100;
+}
+
+.sidebar.close{
+    width: 88px;
+}
+
+
+/*==== Resuable CSS ==== */
+.sidebar .text{
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--text-color);
+    transition: var(--tran-03);
+    white-space: nowrap;
+    opacity: 1;
+}
+
+.sidebar.close .text{
+    opacity: 0;
+}
+
+
+.sidebar .image{
+    margin-top: 60px;
+    min-width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar li{
+    height: 50px;
+    margin-top: 30px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+
+.sidebar li .icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+    font-size: 20px;
+}
+
+.sidebar li .icon,
+.sidebar li .text{
+    color: var(--text-color);
+    transition: var(--tran-02);
+}
+
+
+.sidebar header{
+    position: relative;
+    right: 25;
+}
+
+.sidebar .image-text img{
+    margin-top: 10PX;
+    justify-content: center;
+    width: 65px;
+    border-radius: 3px;
+}
+
+.sidebar header .image-text{
+    justify-content: center;
+    margin-top: 20px;
+    display: flex;
+    align-items:center;
+}
+
+header .image-text .header-text{
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar header .toggle{
+    position: absolute;
+    top: 80%;
+    right: -28px;
+    transform: translateY(-50%) rotate(180deg);
+    height: 20px;
+    width: 20px;
+    background: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--sidebar-color);
+    font-size: 22px;
+    transition: var(--tran-03);
+}
+
+.sidebar.close header .toggle{
+    transform: translateY(-50%);
+}
+
+body.dark .sidebar header .toggle{
+    color: var(--text-color);
+}
+
+.sidebar .menu{
+    margin-top: 35px;
+}
+
+.sidebar .search-box{
+    background: var(--primary-color-light);
+    border-radius: 6px;
+    transition: var(--tran-05);
+}
+
+.search-box input {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 400;
+    background: var(--primary-color-light);
+    transition: var(--tran-05);
+    
+}
+
+.sidebar li a{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: var(--tran-04);
+}
+
+.sidebar li a:hover{
+    background: var(--primary-color);
+}
+
+.body.dark li a:hover .icon,
+.body.dark li a:hover .text{
+    color: var(--text-color);
+}
+
+.sidebar li a:hover .icon,
+.sidebar li a:hover .text{
+    color: var(--sidebar-color);
+}
+
+.sidebar .menu-bar{
+    height: calc(100% - 80px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.menu-bar .mode{
+    align-content: center;
+    position: relative ;
+    border-radius: 6px;
+    background: var(--primary-color-light);
+}
+
+body.dark .menu-bar .mode i.moon{
+    opacity: 0; 
+}
+
+.menu-bar .mode .toggle-switch{
+    position: absolute;
+    right: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-width: 60px;
+    cursor: pointer;
+    border-radius: 6px;
+    background: var(--primary-color-light);
+    transition: var(--tran-05);
+}
+
+.toggle-switch .switch{
+    position: relative;
+    height: 22px;
+    width: 44px;
+    border-radius: 25px;
+    background: var(--togle-color);
+}
+
+.switch::before{
+    content: '';
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);    
+    background: var(--sidebar-color);
+    transition: var(--tran-03);
+}
+
+body.dark .switch::before{
+    left: 24px;
+}
+
+
+small{
+    color: var(--text-color);
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 30px;
+
+}
+h2{
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 22px;
+    margin-bottom: 8px;
+    align-items: flex-start;
+    
+}
+.panel{
+    gap: 1px;
+    background: var(--sidebar-color);
+    border-radius: 0.9em;
+    transition: 0.3s ease-in-out;
+    padding: 1px;
+
+}
+
+.panel{
+    color: var(--text-color);
+}
+
+.panel:hover{
+    transform: scale(1.05);
+}
+
+.dash{
+    width: 70%;
+    height: 80vh;
+    padding: 0 9;
+    justify-content: center;
+    align-content: space-around;
+    gap: 25px;
+}
+
+
+.dash .panel{
+    margin-top: 20px;
+    padding: 20px;
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+    gap: 5px; 
+    
+}
+
+.header-text .name{
+    font-weight: 600;
+    font-size: 38px;
+    color: var(--text-color);
+}
+
+.header-text .descript{
+    color: var(--primary-color);
+    font-weight: 400;
+    margin-top: -px;
+    font-size: 33;
+    
+}
+
+.overview{
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-gap: 35px;
+}
+
+.overview .panel{
+    display: flex;
+    justify-content: center;
+}
+
+.overview .icon{
+    color: var(--primary-color);
+    background: var(--secondary-color);
+    font-size: 1.6em;
+    margin-right: 1em;
+    width: 2.9em;
+    height: 2.9em;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.overview h2{
+    margin-bottom: 0.2em;
+}
+
+.profile-card p{
+    margin: 1em 0;
+}
+
+.profile-card h3{
+    margin: 0.5em 0;
+}
+
+.stats{
+    display: flex;
+    flex-direction: column ;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+body.dark .dash .name{
+    color: #CCC;
+}
+
+body.dark .dash .descript{
+    color: #CCC;
+}
